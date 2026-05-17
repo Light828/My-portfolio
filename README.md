@@ -3,7 +3,7 @@ Personal portfolio website showcasing my projects, skills, and contact form buil
 🌐 Light Mnisi Portfolio
 A modern and responsive personal portfolio website showcasing my skills, projects, and contact functionality. Built using HTML, CSS, JavaScript, and EmailJS.
 🔗 Live Website:
-https://light828.github.io/light-portfolio/
+https://light828.github.io/My-portfolio/
 
 ✨ Features
 
