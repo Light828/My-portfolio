@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Light Mnisi Portfolio</title>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#0f172a;color:white;}
+
+header{text-align:center;padding:40px 20px;background:linear-gradient(135deg,#1e293b,#020617);} 
+header img{width:110px;height:110px;border-radius:50%;border:4px solid #38bdf8;margin-bottom:15px;}
+header h1{font-size:2.2rem}
+header p{color:#94a3b8;font-size:0.9rem}
+
+.resume-btn{display:inline-block;margin-top:15px;padding:10px 20px;background:#38bdf8;color:black;border-radius:8px;text-decoration:none;font-weight:bold;}
+
+nav{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;background:#020617;padding:10px;position:sticky;top:0;}
+nav a{color:white;text-decoration:none;font-size:14px;}
+nav a:hover{color:#38bdf8}
+
+section{padding:30px 15px;max-width:1000px;margin:auto}
+h2{margin-bottom:15px;border-bottom:2px solid #38bdf8;display:inline-block;font-size:1.5rem}
+
+.skills li{background:#1e293b;padding:10px;margin:8px 0;border-radius:8px;}
+
+.projects{display:grid;grid-template-columns:1fr;gap:15px;}
+.project{background:#1e293b;padding:15px;border-radius:10px;transition:0.3s;}
+.project:hover{transform:scale(1.03);background:#334155;}
+.project a{display:inline-block;margin-top:10px;color:#38bdf8;}
+
+form{display:flex;flex-direction:column;gap:10px;margin-top:15px;}
+input,textarea{padding:10px;border:none;border-radius:6px;outline:none;}
+button{padding:10px;background:#38bdf8;border:none;border-radius:6px;font-weight:bold;cursor:pointer;}
+button:hover{background:#0ea5e9}
+
+footer{text-align:center;padding:15px;background:#020617;font-size:14px;}
+
+@media(min-width:600px){
+  .projects{grid-template-columns:repeat(2,1fr);}
+}
+@media(min-width:900px){
+  .projects{grid-template-columns:repeat(3,1fr);} 
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="Light.jpeg" alt="profile" />
+  <h1>Light Mnisi</h1>
+  <p>Full Stack Developer | Software Developer</p>
+  <a href="LightMnisiCV.pdf" download class="resume-btn">⬇ Download Resume</a>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#wil">WIL</a>  
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>Passionate developer building modern web applications and solving real-world problems.</p>
+</section>
+
+<section id="skills" class="skills">
+  <h2>Skills</h2>
+  <ul>
+    <li>HTML, CSS, JavaScript</li>
+    <li>Java & Python</li>
+    <li>MySQL</li>
+  </ul>
+</section>
+
+<section id="wil">
+  <h2>Work Integrated Learning (WIL)</h2>
+  
+  <p>
+    I am a Computer Science student at Tshwane University of Technology currently seeking 
+    Work Integrated Learning (WIL) to gain industry experience in software development and IT.
+  </p>
+
+  <p><strong>My study areas include:</strong></p>
+  
+  <ul>
+    <li>Software Programming</li>
+    <li>Mobile Development</li>
+    <li>Database Design</li>
+    <li>System Analysis</li>
+  </ul>
+
+  <p>
+    I am eager to apply my skills in a real-world environment, contribute to innovative projects,
+    and grow as a professional developer.
+  </p>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+
+    <div class="project">
+      <h3>Xidonka Catering</h3>
+      <p>Chef booking system</p>
+      <a href="https://light828.github.io/XIDONKANA-CATERING-SERVICE-/" target="_blank">View Project</a>
+    </div>
+
+    <div class="project">
+      <h3>Football League</h3>
+      <p>League system</p>
+      <a href="https://light828.github.io/Manyeleti_Football_Association_League/" target="_blank">View Project</a>
+    </div>
+  <div class="project">
+  <h3>Subscribe Pop-up</h3>
+  <p>Responsive email subscription modal</p>
+  <a href="https://light828.github.io/subscribe-pop-up-/" target="_blank">View Project</a>
+</div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+
+ <p>Email: lightmnisi6@gmail.com</p>
+  <p>Phone: +27 607 502 335</p>
+  <p>
+    GitHub: 
+    <a href="https://github.com/Light828" target="_blank">
+      Light828
+    </a>
+  </p>
+
+  <form id="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Light Mnisi</p>
+</footer>
+
+<script>
+// INIT EMAILJS
+
+  emailjs.init("ClepTYjiDEa6QLcvS");
+
+
+// SEND EMAIL
+
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  emailjs.send("service_1i0svxg","template_vi607th",{
+    from_name: this.name.value,
+    from_email: this.email.value,
+    message: this.message.value
+  })
+  .then(function(){
+    alert("✅ Message sent successfully!");
+  }, function(error){
+    alert("❌ Failed to send message. Try again.");
+  });
+});
+
+// smooth scroll
+
+document.querySelectorAll("nav a").forEach(link=>{
+  link.addEventListener("click",function(e){
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"});
+  });
+});
+</script>
+
+</body>
+</html>
