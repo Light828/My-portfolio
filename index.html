@@ -152,37 +152,50 @@ footer{text-align:center;padding:15px;background:#020617;font-size:14px;}
   <p>© 2026 Light Mnisi</p>
 </footer>
 
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 <script>
-// INIT EMAILJS
-
-  emailjs.init("ClepTYjiDEa6QLcvS");
-
-
-// SEND EMAIL
-
-document.getElementById("contact-form").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  emailjs.send("service_1i0svxg","template_vi607th",{
-    from_name: this.name.value,
-    from_email: this.email.value,
-    message: this.message.value
-  })
-  .then(function(){
-    alert("✅ Message sent successfully!");
-  }, function(error){
-    alert("❌ Failed to send message. Try again.");
+  // Initialize EmailJS
+  emailjs.init({
+    publicKey: "ClepTYjiDEa6QLcvS"
   });
-});
 
-// smooth scroll
+  // Contact form submit
+  document
+    .getElementById("contact-form")
+    .addEventListener("submit", function (e) {
 
-document.querySelectorAll("nav a").forEach(link=>{
-  link.addEventListener("click",function(e){
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"});
+      e.preventDefault();
+
+      emailjs.send("service_1i0svxg", "template_vi607th", {
+        from_name: this.name.value,
+        from_email: this.email.value,
+        message: this.message.value
+      })
+      .then(() => {
+        alert("✅ Message sent successfully!");
+        this.reset();
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("❌ Failed to send message.");
+      });
+
   });
-});
+
+  // Smooth scrolling
+  document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+
+      document
+        .querySelector(this.getAttribute("href"))
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+    });
+  });
 </script>
 
 </body>
